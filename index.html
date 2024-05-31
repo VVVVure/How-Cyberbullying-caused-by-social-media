@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200..1000,6..12,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/1.css">
+    <link rel="stylesheet" href="css/current.css">
+    
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <div id="header">
+        <div id="header-left">
+            <div id="header-left-logo">
+                <img src="img/logo.png" alt="Logo">
+            </div>
+            <div id="header-left-name">
+                <p id="header-left-name-bold">Solidarity</p>
+                <p>Shared your thoughts</p>
+            </div>
+        </div>
+        <div class="headercenter"></div>
+        <ul id="header-right">
+            <li><a href="#">Cyberbullying Types</a></li>
+            <li><a href="#">Persistent Issue</a></li>
+            <li><a href="#">Report</a></li>
+            <li><a href="#">Contact us</a></li>
+        </ul>
+    </div>
+
+    <div class="space" style="height: 100px;"></div>
+
+    <!-- Title Section -->
+    <div class="title">
+        <h1 id="banner-text-color" style="text-align: center;">
+            Cyberbullying caused by Social Media
+        </h1>
+    </div>
+
+    <!-- Chart Container -->
+    <div class="chartContainer">
+        <video src="video/2.mp4" autoplay muted loop></video>
+        <div class="bar" style="left: 0; height: 20vh;">
+            <div class="bar-label">
+                <span class="value">27%</span>
+                <span class="name">Anxiety</span>
+            </div>
+        </div>
+        <div class="spacer" style="left: 25vw;"></div>
+        <div class="bar" style="left: 26vw; height: 25vh;">
+            <div class="bar-label">
+                <span class="value">24%</span>
+                <span class="name">Depression</span>
+            </div>
+        </div>
+        <div class="spacer" style="left: 51vw;"></div>
+        <div class="bar" style="left: 52vw; height: 29vh;">
+            <div class="bar-label">
+                <span class="value">21%</span>
+                <span class="name">Bipolar disorder</span>
+            </div>
+        </div>
+        <div class="spacer" style="left: 77vw;"></div>
+        <div class="bar" style="left: 78vw; height: 31vh;">
+            <div class="bar-label">
+                <span class="value">19.5%</span>
+                <span class="name">Isolation</span>
+            </div>
+        </div>
+
+        <div class="text-overlay">
+            <div class="text-content">
+                <p>The internet remains largely unfriendly. Students still encounter a hostile online environment, emphasizing the need for continuous improvement and regulation.</p>
+                <h1>Persistent online hostility</h1>
+            </div>
+        </div>
+
+        <div class="download-button" id="show-chart-card-button">Download the data on cyberbullying rates from 2011 to 2021</div>
+    </div>
+
+    <!-- Modal Section -->
+    <div id="chartModal" class="modal">
+        <div class="chartCard" id="chartCard" style="display: none;">
+            <div class="chartBox">
+                <button class="closeModal">Close</button>
+                <button id="toggleButton" class="toggle-button" onclick="toggleChartCard()">Close</button>
+                <canvas id="myChart"></canvas>
+                <button id="toggleDescriptionButton" onclick="toggleDescription()">Show Description</button>
+            </div>
+            <p class="description">From 2011 to 2021, although the proportion of negative behavior fluctuated in some years, overall, the proportion of negative behavior on the internet has remained largely unchanged. This indicates that despite slight improvements in some years, the online environment remains hostile and unfriendly overall. Students are still facing a harsh online environment while browsing, underscoring the importance of continuous improvement and regulation.</p>
+        </div>
+    </div>
+
+    <!-- Highlighted Text Section -->
+    <div class="black-rectangle">
+        <div class="text-container">
+            You might now be wondering what 
+            <span class="highlight">exactly</span> has led to the 
+            <span class="highlight">rampant</span> nature of                  
+            <span class="highlight">cyberbullying</span>.
+        </div>
+    </div>
+
+    <!-- Vertical Bars Section -->
+    <div class="verticalbar">
+        <div class="vbar" style="background-color: #ff4136;">Anonymity and Disinhibition on Social Media</div>
+        <div class="vbar" style="background-color: #b51f1a;">Lack of Supervision and Moderation</div>
+        <div class="vbar" style="background-color: #450101;">Divided and rule</div>
+    </div>
+
+    <!-- Content Sections -->
+    <div class="content2" style="height:500px; width:100%;"></div>
+
+    <div class="folder1">
+        <div class="content1" style="height:200px; width:100%;">
+            <h1 id="anonymity-text">(1) Anonymity</h1>
+        </div>
+        <!-- Anonymity Popup -->
+        <div class="alert" id="anonymity-popup">
+            <div class="alert-body">
+                <div class="alert-title">
+                    What is Anonymity?
+                    <span class="close" id="close-anonymity-popup">&times;</span>
+                </div>
+                <div class="alert-content">
+                    Anonymity refers to the state of being not identifiable within a set of subjects. It is often used to protect user privacy in various online and offline scenarios.
+                </div>
+            </div>
+        </div>
+
+        <div id="treemap-container" style="width: 100%; height: 600px;"></div>
+
+        <div class="content3" style="height: 500px; width: 100%; padding: 20px; background-color: #000000; font-family: Arial, sans-serif; color: #ffffff;">
+            <span class="highlighted-text">According to China Youth Daily, the survey conducted among 3,620 college students from 175 universities highlights significant concerns about the relationship between <span class="highlight">anonymity</span> and cyber violence. A majority of respondents believe that <span class="highlight">anonymity</span> facilitates the spread of <span class="highlight">false information</span> (66.46%) and makes it challenging to hold perpetrators accountable in fraudulent activities (64.17%). Additionally, over half the students expressed concerns about increased risks of encountering <span class="highlight">harmful individuals</span> and the proliferation of <span class="highlight">violent</span> and <span class="highlight">pornographic content</span> due to <span class="highlight">anonymity</span>. These findings emphasize the urgent need for strategies to mitigate the risks associated with <span class="highlight">anonymous environments</span> on the internet.</span>
+        </div>
+    </div>
+
+    <div class="folder2">
+        <!-- Moderation Popup -->
+        <div class="content5" style="height:200px; width:100%;">
+            <h1 id="moderation-text">(2) Moderation</h1>
+        </div>
+        <!-- Moderation Popup -->
+        <div class="alert" id="moderation-popup" style="display: none;">
+            <div class="alert-body">
+                <div class="alert-title">
+                    What is Moderation?
+                    <span class="close" id="close-moderation-popup">&times;</span>
+                </div>
+                <div class="alert-content">
+                    Moderation involves the regulation and control of content to ensure it adheres to community guidelines and legal standards, often used in digital platforms to maintain a safe and respectful environment.
+                </div>
+            </div>
+        </div>
+
+        <div id="pie" style="display: flex; width: 100%;">
+            <div id="pieChartContainer" style="flex: 2; display: flex; justify-content: center; align-items: center;">
+                <canvas id="guardianshipPieChart" width="500" height="500"></canvas>
+            </div>
+            <div id="pieDescription" style="flex: 1; padding: 20px; color: white;">
+                <h2>Pie Chart Description</h2>
+                <p>The 3D pie chart visualizes the distribution of students under different types of guardianship: <span class="highlight">no supervision</span>, <span class="highlight">parental supervision</span>, and <span class="highlight">school supervision</span>. Each segment—<span class="highlight">red</span> for no supervision, <span class="highlight">white</span> for parental, and <span class="highlight">grey</span> for school—clearly delineates how students are monitored in their educational and possibly online activities. This visual tool is essential for stakeholders to assess and optimize supervision strategies, ensuring that policies and resources are appropriately aligned to support student needs effectively.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content2" style="height:500px; width:100%;"></div>
+
+    <div class="folder3">
+        <!-- Rule Popup -->
+        <div class="content1" style="height:200px; width:100%;">
+            <h1 id="rule-text">(3) Divided and Rules</h1>
+        </div>
+        <!-- Rule Popup -->
+        <div class="alert" id="rule-popup" style="display: none;">
+            <div class="alert-body">
+                <div class="alert-title">
+                    What is divided and rules?
+                    <span class="close" id="close-rule-popup">&times;</span>
+                </div>
+                <div class="alert-content">
+                    In politics and sociology, gaining and maintaining power divisively. This includes the exploitation of existing divisions within a political group by its political opponents, and also the deliberate creation or strengthening of such divisions.
+                </div>
+            </div>
+        </div>
+
+        <div class="btimeline">
+            <div class="timeline">
+                <div id="visualization"></div>
+                <button id="playButton">Play</button>
+                <button id="stopButton">Stop</button>
+            </div>
+            <div class="highlighted-text">
+                <p>The strategy of <span class="highlight">"divide and rule"</span> has been extensively employed globally since ancient times. This tactic involves <span class="highlight">creating or exploiting divisions among populations</span> to prevent them from uniting against a common adversary, thereby making it easier to maintain control over them. This approach has been documented as early as the <span class="highlight">first century BC</span> and has been a recurrent method in the political and military strategies of various empires and leaders throughout history to <span class="highlight">consolidate power and control</span>.</p>
+            </div>
+        </div>
+
+        <div class="content2" style="height:100px; width:100%;"></div>
+
+        <img src="img/wing.png" id="wingImage" style="opacity: 0; transition: opacity 4s;" class="hidden">
+        <div class="imgdes"></div>
+
+        <!-- Cards Section -->
+        <div class="cards-container">
+            <div class="cards-row">
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h2>Nation-State Cyberattacks</h2>
+                        </div>
+                        <div class="card-back">
+                            <p><strong>Divide and Rule Application:</strong> Governments engage in these attacks not only to harm their adversaries directly but also to sow discord within the targeted nation. For instance, cyberattacks that leak sensitive information can lead to public distrust in the government, fragmenting societal unity and weakening the country internally.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h2>Cyber Terrorism</h2>
+                        </div>
+                        <div class="card-back">
+                            <p><strong>Divide and Rule Application:</strong> Acts of cyber terrorism are designed to create fear and chaos. By targeting critical infrastructure and spreading propaganda, these acts can exacerbate divisions within a society. This makes it easier for the perpetrating entity to manipulate public opinion and control the narrative, thus maintaining power or destabilizing a government.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h2>Sanctions and Cyber Retaliation</h2>
+                        </div>
+                        <div class="card-back">
+                            <p><strong>Divide and Rule Application:</strong> By imposing sanctions or retaliating against cyber adversaries, a government can not only punish those directly responsible but also send a signal to other potential perpetrators. This can lead to divisions among enemy ranks, as individuals or groups may begin to act more cautiously or even turn against each other to avoid similar repercussions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cards-row">
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h2>Parental Involvement</h2>
+                        </div>
+                        <div class="card-back">
+                            <p><strong>Divide and Rule Application:</strong> Crucial role of parents in managing cyberbullying.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h2>Cyberbullying and Harassment</h2>
+                        </div>
+                        <div class="card-back">
+                            <p><strong>Divide and Rule Application:</strong> When powerful individuals or public figures are targeted, the harassment can serve to discredit them and diminish their influence. This tactic can be used by political opponents to divide public opinion and distract from more significant issues. It can also polarize the public, with some defending the harassed individuals and others condemning them based on the propagated narratives.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Box Section -->
+        <div class="content-box">
+            <p>The persistence of cyberbullying is fueled by the anonymity afforded by digital platforms, which allows perpetrators to operate without accountability. The vast reach and accessibility of the internet enable rapid and widespread dissemination of harmful content. Moreover, those who engage in cyberbullying often possess advanced technological skills, allowing them to manipulate digital interactions effectively. This imbalance not only makes it difficult for victims to seek redress but also challenges regulatory efforts to control or mitigate such behavior.</p>
+        </div>
+    </div>
+
+    <div class="content5" style="height:130px; width:100%;">
+        <h1 id="Moreinfo">For more information:</h1>
+    </div>
+
+    <!-- Countries Section -->
+    <div class="countries">
+        <canvas id="cyberbullyingChart" width="1200" height="400"></canvas>
+    </div>
+
+    <!-- Map Section -->
+    <div class="map" style="height: 900px;">
+        <div class="map-title" style="font-size: larger;">Cyberbullying cases in The US</div>
+        <div class="container">
+            <div class="left-half">
+                <div id="myDiv" class="map"></div>
+                <div id="mapDescription" class="map-description">
+                    This map shows the number of electronically bullied high school students by state in 2021. The data highlights the prevalence of cyberbullying across different regions, emphasizing the need for increased awareness and preventive measures.
+                </div>
+            </div>
+            <div class="right-half">
+                <div id="slide">
+                    <div class="item" style="background-image: url(img/1.1.jpg);">
+                        <div class="content">
+                            <div class="name">Florida</div>
+                            <div class="des">Two 12-year-olds arrested for cyberbullying before girl's suicide</div>
+                            <button class="link-button" onclick="window.location.href='https://www.news5cleveland.com/news/two-12-year-olds-arrested-for-cyberbullying-before-girls-suicide'">Click to see news</button>
+                        </div>
+                    </div>
+                    <div class="item" style="background-image: url(img/3.3.jpg);">
+                        <div class="content">
+                            <div class="name">Texas</div>
+                            <div class="des">Texas teen shares why she reported cyberbullying instead of remaining silent</div>
+                            <button class="link-button" onclick="window.location.href='https://www.ktalnews.com/news/local-news/texas-teen-shares-why-she-reported-cyberbullying-instead-of-remaining-silent/'">Click to see news</button>
+                        </div>
+                    </div>
+                    <div class="item" style="background-image: url(img/1.4.jpg);">
+                        <div class="content">
+                            <div class="name">Michigan</div>
+                            <div class="des">Mother facing charges after allegedly cyberbullying her own daughter</div>
+                            <button class="link-button" onclick="window.location.href='https://abcnews.go.com/GMA/News/mother-facing-charges-after-allegedly-cyberbullying-daughter/story?id=95519770'">Click to see news</button>
+                        </div>
+                    </div>
+                    <div class="item" style="background-image: url(img/2.1.jpg);">
+                        <div class="content">
+                            <div class="name">New Jersey</div>
+                            <div class="des">Rise in Cyberbullying Incidents</div>
+                            <button class="link-button" onclick="window.location.href='https://www.inquirer.com/education/bullying-schools-cyberbullying-statistics-new-jersey-20240302.html'">Click to see news</button>
+                        </div>
+                    </div>
+                    <div class="item" style="background-image: url(img/3.1.jpg);">
+                        <div class="content">
+                            <div class="name">Georgia</div>
+                            <div class="des">Georgia GOP Leaders Say State Crackdown on Cyberbullying a Top Priority in 2024</div>
+                            <button class="link-button" onclick="window.location.href='https://www.the74million.org/article/georgia-gop-leaders-say-state-crackdown-on-cyberbullying-a-top-priority-in-2024/'">Click to see news</button>
+                        </div>
+                    </div>
+                    <div class="item" style="background-image: url(img/3.2.jpg);">
+                        <div class="content">
+                            <div class="name">Missouri</div>
+                            <div class="des">Criminal Charges for Cyberbullying</div>
+                            <button class="link-button" onclick="window.location.href='https://www.findlaw.com/criminal/criminal-charges/cyber-bullying.html'">Click to see news</button>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <div class="s_buttons">&lt;</div>
+                        <div class="s_buttons">&gt;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Summary Section -->
+    <div class="cyberbullying-summary">
+        <p>Overall, the United States, as the foremost superpower, registers the highest rates of cyberbullying globally. This trend is attributed to the extensive use of social media and digital communication platforms among Americans, coupled with a highly competitive societal framework that often glorifies aggressive behaviors and conflict. Such dynamics not only perpetuate existing cyberbullying issues but also complicate efforts to implement effective preventive measures and educational programs aimed at reducing the incidence of online harassment and abuse.</p>
+    </div>
+
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Phone: +0451468168</p>
+                <p>Email: 2102814519@qq.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <a href="#" class="social-link">Facebook</a>
+                <a href="#" class="social-link">Twitter</a>
+                <a href="#" class="social-link">Instagram</a>
+            </div>
+            <div class="footer-section">
+                <h3>About the Project</h3>
+                <p>This project is dedicated to combating cyberbullying and providing support to those in need. Join us in spreading kindness and support.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="js/index2.js"></script>
+    <script src="https://unpkg.com/vis-timeline/standalone/umd/vis-timeline-graph2d.min.js"></script>
+    <script>
+        d3.csv('state_with_code_cleaned (1).csv').then(function(rows) {
+            function unpack(rows, key) {
+                return rows.map(function(row) { return row[key]; });
+            }
+
+            var locations = unpack(rows, 'State Code');
+            var zValues = unpack(rows, 'Totals N').map(Number); // Ensure numeric values
+            var textValues = unpack(rows, 'Location');
+
+            console.log('Locations:', locations);
+            console.log('Z values:', zValues);
+            console.log('Text values:', textValues);
+
+            var data = [{
+                type: 'choropleth',
+                locationmode: 'USA-states',
+                locations: locations,
+                z: zValues,
+                text: textValues,
+                zmin: 0,
+                zmax: Math.max(...zValues),
+                colorscale: [
+                    [0, 'rgb(255,245,235)'], [0.2, 'rgb(254,224,210)'],
+                    [0.4, 'rgb(252,187,161)'], [0.6, 'rgb(252,146,114)'],
+                    [0.8, 'rgb(251,106,74)'], [1, 'rgb(222,45,38)']
+                ],
+                colorbar: {
+                    title: 'Number of Students',
+                    thickness: 20,
+                    len: 0.9, // Control colorbar length
+                    outlinewidth: 1,
+                    outlinecolor: 'black',
+                    y: 0.7  // Control vertical position
+                },
+                marker: {
+                    line: {
+                        color: 'rgb(255,255,255)',
+                        width: 2
+                    }
+                },
+                hoverinfo: 'location+z+text',
+                hoverlabel: {
+                    bgcolor: 'white',
+                    bordercolor: 'black',
+                    font: {
+                        size: 14,
+                        color: 'black'
+                    }
+                }
+            }];
+
+            var layout = {
+                title: 'Electronically Bullied High School Students by State (2021)',
+                geo: {
+                    scope: 'usa',
+                    showlakes: true,
+                    lakecolor: 'rgb(173,216,230)',
+                    projection: {
+                        type: 'albers usa'
+                    },
+                    showland: true,
+                    landcolor: 'rgb(217,217,217)',
+                    subunitwidth: 1,
+                    countrywidth: 1,
+                    subunitcolor: 'rgb(255,255,255)',
+                    countrycolor: 'rgb(255,255,255)',
+                    domain: {
+                        y: [0, 1] // Control vertical position
+                    }
+                },
+                margin: {
+                    l: 3,
+                    r: 0,
+                    t: 200,
+                    b: 20
+                },
+            };
+
+            Plotly.newPlot("myDiv", data, layout, {showLink: false});
+        });
+    </script>
+</body>
+</html>
